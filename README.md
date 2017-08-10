@@ -7,7 +7,6 @@ I'll dedicate one hour per week during five/seven weeks or so to people who is a
 
 I do not consider myself a guru on cloud technologies but I have some experience, resources and friends that can be invited to join us for a session.
 
-
 I'll provide 
 - One hour of my precious life per week for a live session
 - A virtual instance to work
