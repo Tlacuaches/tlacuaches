@@ -21,4 +21,6 @@ I have only two more spots left.
 
 yazpik@gmail.com
 
+tlacuaches.slack.com
+
 Regards
