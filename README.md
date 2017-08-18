@@ -17,11 +17,11 @@ I'll provide
 
 There is no money involved here, and you just need to send me an email with your resume, and why you should be accepted on this project.
 
-I have only two more spots left.
+### Spots have been filled already, wait for upcoming trainings
 
 Check our [layout/plan](https://github.com/tlacuaches/tlacuaches/blob/master/layout/plan.md) 
 
-[Manifestum](https://github.com/tlacuaches/tlacuaches/blob/master/manifestum.md)
+[Tlacuaches Manifestum](https://github.com/tlacuaches/tlacuaches/blob/master/manifestum.md)
 
 yazpik@gmail.com
 
