@@ -15,12 +15,14 @@ I'll provide
 - Sysadmins, Devs, DevOps to join on some sessions and bright us
 - Fun
 
-No money involved, And you just need to send me an email with your resume, and why you should be accepted on this project.
+There is no money involved here, and you just need to send me an email with your resume, and why you should be accepted on this project.
 
 I have only two more spots left.
 
-yazpik@gmail.com
+Check our [layout/plan](https://github.com/yazpik/tlacuaches/blob/master/layout/plan.md) 
 
-tlacuaches.slack.com
+[Manifestum](https://github.com/yazpik/tlacuaches/blob/master/manifestum.md)
+
+yazpik@gmail.com
 
 Regards
