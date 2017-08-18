@@ -19,9 +19,9 @@ There is no money involved here, and you just need to send me an email with your
 
 I have only two more spots left.
 
-Check our [layout/plan](https://github.com/yazpik/tlacuaches/blob/master/layout/plan.md) 
+Check our [layout/plan](https://github.com/tlacuaches/tlacuaches/blob/master/layout/plan.md) 
 
-[Manifestum](https://github.com/yazpik/tlacuaches/blob/master/manifestum.md)
+[Manifestum](https://github.com/tlacuaches/tlacuaches/blob/master/manifestum.md)
 
 yazpik@gmail.com
 
