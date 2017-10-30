@@ -66,7 +66,8 @@ It's amazing, we've  just deployed 20 containers and balance them throught two n
 
 ### checkout your IP using your browser:
 
-![alt text](https://farm5.staticflickr.com/4480/37609660866_f634fd8663_b.jpg "docker swarm")
+
+![alt text](https://farm5.staticflickr.com/4480/37609660866_074bd9b89f.jpg "docker swarm")
  
 **Try to stop any container and you will see the magic!**
 **Magically Docker Swarm create again a new one container thanks to restart_policy: condition: on-failure**
