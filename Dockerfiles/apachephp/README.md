@@ -17,19 +17,105 @@ I will show you how to deploy service in order to understand how swarm works.
 /docker-compose.yml
 ### My Dockerfile:
 
-[Dockerfile](https://github.com/Tlacuaches/tlacuaches/blob/master/Dockerfiles/apachephp/Dockerfile "Ismael's Dockerfile")
+```
+FROM ubuntu:latest
+MAINTAINER Ismael Garcia <tuxisma@gmail.com>
+
+# Install apache, PHP, and supplimentary programs. openssh-server, curl, and lynx-cur are for debugging the container.
+RUN apt-get update && apt-get -y upgrade && DEBIAN_FRONTEND=noninteractive apt-get -y install \
+    apache2 php7.0 php7.0-mysql libapache2-mod-php7.0 curl lynx-cur
+
+# Enable apache mods.
+RUN a2enmod php7.0
+RUN a2enmod rewrite
+
+# Update the PHP.ini file, enable <? ?> tags and quieten logging.
+RUN sed -i "s/short_open_tag = Off/short_open_tag = On/" /etc/php/7.0/apache2/php.ini
+RUN sed -i "s/error_reporting = .*$/error_reporting = E_ERROR | E_WARNING | E_PARSE/" /etc/php/7.0/apache2/php.ini
+
+# Manually set up the apache environment variables
+ENV APACHE_RUN_USER www-data
+ENV APACHE_RUN_GROUP www-data
+ENV APACHE_LOG_DIR /var/log/apache2
+ENV APACHE_LOCK_DIR /var/lock/apache2
+ENV APACHE_PID_FILE /var/run/apache2.pid
+
+# Expose apache.
+EXPOSE 80
+
+# Copy this repo into place.
+ADD www /var/www/site
+
+# Update the default apache site with the config we created.
+ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
+
+# By default start up apache in the foreground, override with /bin/bash for interative.
+CMD /usr/sbin/apache2ctl -D FOREGROUND
+
+```
+
 
 ### apache-config.conf:
 
-[apache-config.php](https://github.com/Tlacuaches/tlacuaches/blob/master/Dockerfiles/apachephp/apache-config.conf "Ismael's apacheconfig")
+```
+<VirtualHost *:80>
+  ServerAdmin me@mydomain.com
+  DocumentRoot /var/www/site
+
+  <Directory /var/www/site/>
+      Options Indexes FollowSymLinks MultiViews
+      AllowOverride All
+      Order deny,allow
+      Allow from all
+  </Directory>
+
+  ErrorLog ${APACHE_LOG_DIR}/error.log
+  CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+</VirtualHost>
+
+```
 
 ### www/index.php:
 
-[www/index.php](https://github.com/Tlacuaches/tlacuaches/blob/master/Dockerfiles/apachephp/www/index.php "Ismael's index.php")
+```
+<html>
+  <head><title>Tlacuache1 running</title></head>
+  <body>
+        <center><h1>Hello Tlacuaches!</h1></center>
+        <img src="https://pre00.deviantart.net/c124/th/pre/f/2016/177/6/1/un_tlacuache_casual_g__by_supercrazyhyena-da7sdpj.png" />
+        <?php
+                echo "This comment is runnig the server side";
+        ?>
+  </body>
+</html>
+
+```
 
 ### My docker-compose:
 
-[docker-compose.yml](https://github.com/Tlacuaches/tlacuaches/blob/master/Dockerfiles/apachephp/docker-compose.yml "Ismael's docker-compose.yml")
+```
+
+version: "3"
+services:
+   web:
+       image: tuxisma/apachephp:latest
+       deploy:
+          replicas: 20
+          resources:
+            limits:
+              cpus: "0.1"
+              memory: 50M
+          restart_policy:
+            condition: on-failure
+       ports:
+            - "8080:80"
+       networks:
+            - webnet
+networks:
+    webnet:
+
+ ```
 
 ### Start Docker swarm: 
 `    docker swarm init --advertise-addr IP
@@ -66,7 +152,7 @@ It's amazing, we've  just deployed 20 containers and balance them throught two n
 
 ### checkout your IP using your browser:
 
-![alt text](https://farm5.staticflickr.com/4480/37609660866_f634fd8663_b.jpg "docker swarm")
+![alt text](https://farm5.staticflickr.com/4480/37609660866_074bd9b89f.jpg "docker swarm")
  
 **Try to stop any container and you will see the magic!**
 **Magically Docker Swarm create again a new one container thanks to restart_policy: condition: on-failure**
