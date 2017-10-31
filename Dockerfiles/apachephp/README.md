@@ -152,6 +152,10 @@ It's amazing, we've  just deployed 20 containers and balance them throught two n
 
 ### checkout your IP using your browser:
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 99d683d0d6a7474f477473c7d9e878b827ee7d52
 ![alt text](https://farm5.staticflickr.com/4480/37609660866_074bd9b89f.jpg "docker swarm")
  
 **Try to stop any container and you will see the magic!**
