@@ -33,7 +33,7 @@ As you can see we have tlacuache1 and tlacuachebaby as part of swarm:
 ![Image of swarm init](https://raw.githubusercontent.com/dockersamples/example-voting-app/master/architecture.png)
 [see more details](https://github.com/dockersamples/example-voting-app "DockerExample")
 
-**Voting-app**: Front-end Python webapp that enables a user to choose between a cat and a dog
+**Voting-app**: Front-end Python webapp that enables a user to choose between cat or dog
 **Redis**: Database where votes ares stored
 **.NET worker**: Service that get votes from redis and store the results in a postgres database
 **db**: The postgres database in wich vote's result are stored an retrieved from the result front-end
