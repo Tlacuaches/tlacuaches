@@ -17,7 +17,9 @@ I'll provide
 
 There is no money involved here, and you just need to send me an email with your resume, and why you should be accepted on this project.
 
-### Spots have been filled already for 08/16 - 10/16
+### Spots have been filled already for 08/16/17 - 10/16/17
+
+### See you next year!
 
 Check our [layout/plan](https://github.com/tlacuaches/tlacuaches/blob/master/layout/plan.md) 
 
